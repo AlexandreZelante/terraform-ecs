@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 ###############
 # VPC
 ###############
@@ -60,23 +56,6 @@ resource "aws_security_group" "sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-}
-
-###############
-# Repository
-###############
-
-resource "aws_ecr_repository" "repo" {
-  name                 = "app_repo"
-  image_tag_mutability = "MUTABLE"
-
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-}
-
-output "ecr_repository_url" {
-  value = aws_ecr_repository.repo.repository_url
 }
 
 ###############
