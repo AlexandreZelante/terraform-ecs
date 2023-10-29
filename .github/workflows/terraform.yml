@@ -72,7 +72,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-        cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+        terraform_version: 1.0.0 # Change to your desired Terraform version
 
     - name: Configure AWS credentials
       run: aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} && aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} && aws configure set region us-east-1 # Set the correct region
