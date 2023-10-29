@@ -13,12 +13,10 @@ terraform {
       version = "3.0.1"
     }
   }
-  /* Uncomment this block to use Terraform Cloud for this tutorial
   cloud {
     organization = "fiap-test"
     workspaces {
       name = "fiap-tech-challenge"
     }
   }
-*/
 }
