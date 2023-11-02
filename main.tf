@@ -72,7 +72,7 @@ resource "aws_ecs_cluster" "ecs" {
 }
 
 resource "aws_ecs_service" "service" {
-  name = "app_service"
+  name                   = "app_service"
   cluster                = aws_ecs_cluster.ecs.arn
   launch_type            = "FARGATE"
   enable_execute_command = true
@@ -92,11 +92,11 @@ resource "aws_ecs_service" "service" {
 resource "aws_ecs_task_definition" "td" {
   container_definitions = jsonencode([
     {
-      name         = "app"
-      image        = "332769750459.dkr.ecr.us-east-1.amazonaws.com/app_repo"
-      cpu          = 256
-      memory       = 512
-      essential    = true
+      name      = "app"
+      image     = "332769750459.dkr.ecr.us-east-1.amazonaws.com/app_repo"
+      cpu       = 256
+      memory    = 512
+      essential = true
       portMappings = [
         {
           containerPort = 80
@@ -133,7 +133,7 @@ resource "aws_iam_role" "ecs_execution_role" {
 }
 
 resource "aws_iam_policy_attachment" "ecs_execution_role_attachment" {
-  name = "ecsExecutionRoleAttachment"
+  name       = "ecsExecutionRoleAttachment"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
   roles      = [aws_iam_role.ecs_execution_role.name]
 }
