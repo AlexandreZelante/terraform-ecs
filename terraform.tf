@@ -14,9 +14,10 @@ terraform {
     }
   }
   cloud {
-    organization = "fiap-test"
+    organization = "posfiap"
+
     workspaces {
-      name = "fiap-tech-challenge"
+      name = "pos-fiap"
     }
   }
 }
