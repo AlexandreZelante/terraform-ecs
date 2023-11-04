@@ -101,6 +101,10 @@ resource "aws_route_table_association" "route3" {
 ###############
 
 
+resource "aws_cloudwatch_log_group" "techchallenge-logs" {
+  name              = "awslogs-techchallenge"
+  retention_in_days = 3
+}
 resource "aws_ecs_cluster" "ecs" {
   name = "app_cluster"
 }
